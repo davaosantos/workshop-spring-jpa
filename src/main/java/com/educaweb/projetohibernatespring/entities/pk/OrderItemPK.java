@@ -2,6 +2,7 @@ package com.educaweb.projetohibernatespring.entities.pk;
 
 import com.educaweb.projetohibernatespring.entities.Order;
 import com.educaweb.projetohibernatespring.entities.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -21,7 +22,6 @@ public class OrderItemPK implements Serializable {
     @JoinColumn(name = "order_id")
     private Order order;
 
-
     public Product getProduct() {
         return product;
     }
@@ -30,6 +30,7 @@ public class OrderItemPK implements Serializable {
         this.product = product;
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return order;
     }
